@@ -15,8 +15,6 @@ describe('Tests for API Login', () => {
         password: process.env.PASSWORD,
       });
 
-    console.log('Status:', response.statusCode);
-    console.log('Body:', response.body);
 
     expect(response.statusCode).toBe(200);
     expect(response.body).toHaveProperty('token');

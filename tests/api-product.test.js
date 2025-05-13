@@ -11,7 +11,6 @@ beforeAll(async () => {
 
 describe('Tests for Products Endpoints', () => {
   test('Verify can Create a new product successfully', async () => {
-    console.log(token);
     const response = await request(process.env.BASE_URL)
       .post('/products')
       .set('Authorization', `Bearer ${token}`)
@@ -20,8 +19,7 @@ describe('Tests for Products Endpoints', () => {
         quantity: 100,
         price: 9.99,
       });
-    console.log('Status:', response.statusCode);
-    console.log('Body:', response.body);
+   
     expect(response.statusCode).toBe(201);
     expect(response.body).toHaveProperty('productId');
     productId = response.body.productId;
@@ -73,7 +71,6 @@ describe('Tests for Products Endpoints', () => {
         quantity: 150,
         price: 14.99,
       });
-    console.log(response.body)
     expect(response.statusCode).toBe(200);
     expect(response.body.name).toBe('Updated Product');
   });
@@ -87,7 +84,6 @@ describe('Tests for Products Endpoints', () => {
         quantity: 150,
         price: 14.99,
       });
-    console.log(response.body)
     expect(response.statusCode).toBe(404);
     expect(response.body.message).toBe('Product not found');
   });

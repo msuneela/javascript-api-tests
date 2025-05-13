@@ -1,4 +1,3 @@
-// tests/transactions.test.js
 const request = require('supertest');
 const { getAuthToken } = require('../support/authHelper');
 require('dotenv').config();
